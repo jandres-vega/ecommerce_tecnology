@@ -6,7 +6,6 @@ const {Product, productSchema} = require('./product.models');
 const {Categories, categoriesSchema} = require('./categories.models');
 const {Order, orderSchema} = require('./order.moldes');
 
-
 function setupModels (sequelize) {
 
     User.init(userSchema, User.config(sequelize));
