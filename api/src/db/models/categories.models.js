@@ -17,7 +17,7 @@ const categoriesSchema = {
 class Categories extends Model{
 
     static associated (models) {
-        this.hasMany(models.Product)
+        this.hasMany(models.Product, {onDelete: 'CASCADE'})
     }
     static config (sequelize){
         return {

@@ -36,7 +36,7 @@ const productSchema = {
 class Product extends Model{
 
     static associated (models) {
-        this.belongsTo(models.Categories);
+        this.belongsTo(models.Categories, {onDelete: 'CASCADE'});
     }
     static config (sequelize) {
         return {

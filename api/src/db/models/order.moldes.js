@@ -4,19 +4,17 @@ const ORDER_TABLE = 'Order';
 
 const orderSchema = {
 
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    time: {
-        type: DataTypes.TIME,
-        allowNull: false
+    status_payment: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 }
 
 class Order extends Model  {
 
     static associated (models) {
+        this.belongsTo(models.User, {onDelete: 'CASCADE'});
+        this.belongsToMany(models.Product, {through: models.OrderProduct})
 
     }
     static config (sequelize) {
@@ -24,7 +22,7 @@ class Order extends Model  {
             sequelize,
             nameTable: ORDER_TABLE,
             nameModel: 'Order',
-            timestamps: false
+            timestamps: true
         }
     }
 }

@@ -29,7 +29,7 @@ const addressSchema = {
 class Address extends Model{
 
     static associated (models){
-        this.belongsTo(models.User)
+        this.belongsTo(models.User, {onDelete: 'CASCADE'})
     }
     static config (sequelize) {
         return {

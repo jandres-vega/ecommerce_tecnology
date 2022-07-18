@@ -32,7 +32,8 @@ const userSchema = {
 class User extends Model {
 
     static associated (models){
-        this.hasOne(models.Address)
+        this.hasOne(models.Address, {onDelete: 'CASCADE'})
+        this.hasMany(models.Order, {onDelete: 'CASCADE'})
     }
     static config(sequelize) {
         return {

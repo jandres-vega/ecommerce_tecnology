@@ -47,4 +47,16 @@ router.delete('/:id', async (req, res, next) => {
     }
 });
 
+router.put('/:id', async function (req, res, next) {
+
+    try {
+        const {id} = req.params;
+        const body = req.body;
+        const productUpdate = await product.updateProduct(id, body);
+        res.status(200).send(productUpdate);
+    }catch (e) {
+        next(e);
+    }
+})
+
 module.exports = router;

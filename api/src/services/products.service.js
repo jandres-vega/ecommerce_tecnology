@@ -49,6 +49,11 @@ class ProductService {
         return {id}
     }
 
+    async updateProduct (id, changes) {
+        const productId = await this.getProductById(id);
+        return await productId.update(changes);
+    }
+
 
 }
 
